@@ -1,0 +1,9 @@
+FMCADASTRO.table1.Locate('nome',ZQuery1.fieldbyname('nome').AsString,[]);
+   if (FMCADASTRO.Focused=false) then
+ begin
+    FMCADASTRO.Show;
+    close;
+   end
+else
+   FORMDABUSCADOCADASTRO.destroy;
+   close;
