@@ -1,0 +1,27 @@
+como controlar o status dos botões?
+quando clico em incluir o botão salvar deve ficar acesso/enable e vice versa
+então temos esse código simples
+deve ser inserido no componente Datasouce, de um clique duplo sobre o data source e cole o codigo.
+ps os nomes dos botões devem ser os mesmos.
+
+
+if(Table1.State in [dsEdit,dsInsert])then
+      begin
+        btnincluir.Enabled:=false;
+        btngravar.Enabled:=true;
+        btncancelar.Enabled:=true;
+        btneditar.Enabled:=false;
+        btnbusca.Enabled:=false;
+        btnexcluir.Enabled:=false;
+        btnfechar.Enabled:=false;
+      end
+    else
+      begin
+        btnincluir.Enabled:=true;
+        btngravar.Enabled:=false;
+        btncancelar.Enabled:=false;
+        btneditar.Enabled:=true;
+        btnbusca.Enabled:=true;
+        btnexcluir.Enabled:=true;
+        btnfechar.Enabled:=true;
+      end;
