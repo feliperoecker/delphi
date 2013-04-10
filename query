@@ -1,0 +1,7 @@
+with NOMEDAQYUERY do
+begin
+close;
+sql.Clear;
+sql.Add('select * from NOMETABELA where NOMEDOCAMPO like'+QuotedStr('%'+Edit1.Text+'%'));
+open;
+end;
