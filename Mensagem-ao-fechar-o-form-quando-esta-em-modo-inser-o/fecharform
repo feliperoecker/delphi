@@ -1,0 +1,16 @@
+//controlar  fechar do formulario
+
+//incluir codigo no evento  onCloseQuery do Formulario de cadastro
+
+ if btnSalvar.Enabled then
+
+  begin
+
+    CanClose := False;
+
+    MessageDlg('Salve ou cancele a operação corrente antes de fechar a janela',
+
+      mtInformation, [mbOk], 0);
+
+  end;
+
