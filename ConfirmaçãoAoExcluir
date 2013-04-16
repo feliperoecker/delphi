@@ -1,0 +1,8 @@
+//Inserir o código no botão excluir
+
+
+If  MessageDlg('Você tem certeza que deseja excluir o registro?',mtConfirmation,[mbyes,mbno],0)=mryes
+  then
+     begin
+       table1.delete;     
+     end;
