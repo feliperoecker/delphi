@@ -1,0 +1,49 @@
+Salve sua planilha excel formato CSV (salvar como >CSV).Nome ARQ para o exemplo.Linhas e colunas sem cabeçalho. 
+Na uses de seu formulário declare COMOBJ. 
+
+Em um botão coloque: 
+procedure TForm4.BitBtn5Click(Sender: TObject); 
+var 
+Arq : TextFile; 
+texto : string; 
+I : Integer; 
+function MV : String; 
+var 
+Monta : String; 
+begin 
+monta := ´´; 
+inc(I); 
+While Texto[I] > ´*´ do 
+begin 
+If Texto[I]= ´;´ then 
+break; 
+monta := monta + Texto[I]; 
+inc(I); 
+end; 
+result := monta; 
+end; 
+
+begin 
+if OpenDialog1.Execute then 
+begin 
+Screen.Cursor := crHourGlass; 
+datamodule3.table5.Open;//a tabela onde quero por os dados excel 
+AssignFile(Arq,OpenDialog1.FileName); 
+Reset(Arq); 
+if not EOF(Arq) then 
+repeat 
+ReadLn(Arq,Texto); 
+
+With datamodule3.table5 do begin 
+Insert; 
+I := 0; 
+FieldByName(´Nº´).AsFloat:=StrToFloat(MV);// Nº é meu campo 
+FieldByName(´Operação´).AsString := MV;//operação outro campo 
+FieldByName(´Tempo´).AsFloat:=StrToFloat(MV);//Tempo outro campo 
+Post; 
+end; 
+until EOF(Arq);// ate o fim arquivo CSV 
+Closefile(Arq);//fecha arquivo CSV 
+Screen.Cursor := crDefault; 
+end; 
+end; 
